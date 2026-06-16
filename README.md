@@ -1,62 +1,27 @@
-# Hack GitHub Contribution Graph 📊
-This repository contains a simple bash script to **backdate your GitHub contributions**. It's not magic, just a straightforward way to create commits in the past, helping you fill out your contribution graph for specific dates.
+# Hire people based off of real conversations, not commit graphs.
 
-## How It Works 💻
-The script automates the process of creating commits in a specified date range. It reads dates from a `date.txt` file, creates a commit for each date using the `git commit --date` command, and then pushes these changes to your GitHub repository. This allows Git to record the commit as if it happened on that past date.
+This repository is a deliberately silly GitHub contribution graph backfill.
 
-## What You Can Create ✨
-This script gives you control over your past contribution history on GitHub. Here are a couple of ways you can utilize it:
+The commits in this repo are not evidence that I worked on those days. They are a reminder that a contribution graph is metadata, not merit. It can be automated, backdated, generated, inflated, or just shaped by someone's work context.
 
-### Fill Missed Contributions 🗓️
-You can easily fill in days where you might have forgotten to commit or had a gap in your activity. This helps in maintaining a consistent-looking contribution graph.
+Good hiring signals come from real conversations: how someone thinks, explains tradeoffs, collaborates, learns, handles ambiguity, and talks through the work they have actually done.
 
-![Busy Contribution Graph](./screenshots/busy_contribution_graph.png)
+## What this proves
 
-### Draw Patterns on Your Graph 🎨
-Beyond just filling in gaps, with careful planning of your `date.txt` file, you can even "draw" patterns or shapes on your contribution graph by strategically placing commits on specific dates.
+Git commit dates and author metadata can be controlled. GitHub contribution graphs are useful as a personal activity visualization, but they should not be treated as a proxy for engineering ability, consistency, seriousness, or hireability.
 
-![Visual Contribution Graph](./screenshots/visual_contribution_graph.png)
+## What happened here
 
-## Setup ⚙️
-Before you begin, make sure you have:
-- Git installed on your system.
-- A GitHub repository (this script assumes it's linked as `origin`).
+This repo contains a backfilled contribution history from `2016-01-01` through `2026-06-15`, with a little random noise added so the graph looks more organic.
 
-`date.txt` Format 📅
-Create a file named `date.txt` in the root of your repository. Each line in this file should contain a single date in the `YYYY-MM-DD` format.
+Each generated commit says, in one form or another, that it is not a hiring signal.
 
-Example `date.txt`:
-```
-2023-01-01
-2023-01-02
-2023-01-03
-```
+## The script
 
-## Usage ▶️
-1. **Init Git** locally and **add origin** to your repository:
-```
-git init
-git remote add origin <your repo url>
-```
-2. **Create or update** `date.txt` with the dates you want to backdate contributions for, as described above.
+The original script is still here as [`hack-github-contribution.sh`](./hack-github-contribution.sh). It is not actual hacking. It just creates commits with chosen dates.
 
-3. **Make sure the** `contribution.txt` **file exists** in your repository, or it will be created.
+## Hiring note
 
-4. **Copy the content** of [`hack-github-contribution.sh`](./hack-github-contribution.sh) file (from this repository) to your local `.sh` file.
+Please do not use contribution graphs as a hiring divining rod. A grid of green squares can mean "productive engineer," but it can also mean "script enthusiast," "open source maintainer with weird hours," "person who commits generated files," or "someone making a point."
 
-5. **Run the script:**
-```
-bash your_script_name.sh
-```
-(Replace `your_script_name.sh` with the actual name of your `.sh` file, like `hack-github-contribution.sh`.)
-
-The script will iterate through each date in `date.txt`, make a commit, and push it. After a date is successfully processed and pushed, it will be **removed from** `date.txt` to avoid re-processing on subsequent runs. If a push fails, the date will remain in `date.txt` for retries.
-
-## Important Notes ⚠️
-- **GitHub Contribution Graph Delay:** Even after successfully pushing backdated commits, it can take some time (usually a few minutes to **up to 24 hours**) for your GitHub profile's contribution graph to update. GitHub's graph is cached and not always real-time. Make sure the email address used in your Git commits is associated with your GitHub account.
-
-## Disclaimer ✨
-This tool is a **simple demonstration** of how Git commit dates and author information can be manipulated. It's not a "fancy" hacking tool, but rather leverages the basic functionalities of Git. It helps you understand that what you see on a contribution graph is based on commit metadata, which can be controlled.
-
-## Hiring Note 🧑‍💻
-Please do not use contribution graphs as a hiring divining rod. A grid of green squares can mean "productive engineer," but it can also mean "script enthusiast," "open source maintainer with weird hours," "person who commits generated files," or "someone who discovered this repo and chose chaos." Good candidates are measured by judgment, collaboration, curiosity, craft, and the work they can actually explain, not by whether their profile looks like a lawn that has been watered every day for ten years.
+Hire people by talking with them about judgment, curiosity, craft, collaboration, and the work they can explain.
